@@ -12,13 +12,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_201_124_191_526) do
+ActiveRecord::Schema.define(version: 20_201_122_221_930) do
   create_table 'answers', force: :cascade do |t|
     t.boolean 'correct', default: false, null: false
     t.integer 'question_id', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.string 'body'
     t.index ['question_id'], name: 'index_answers_on_question_id'
   end
 
@@ -50,16 +49,7 @@ ActiveRecord::Schema.define(version: 20_201_124_191_526) do
     t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table 'users_tests', force: :cascade do |t|
-    t.integer 'user_id', null: false
-    t.integer 'test_id', null: false
-    t.index ['test_id'], name: 'index_users_tests_on_test_id'
-    t.index ['user_id'], name: 'index_users_tests_on_user_id'
-  end
-
   add_foreign_key 'answers', 'questions'
   add_foreign_key 'questions', 'tests'
   add_foreign_key 'tests', 'categories'
-  add_foreign_key 'users_tests', 'tests'
-  add_foreign_key 'users_tests', 'users'
 end
