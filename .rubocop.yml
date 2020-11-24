@@ -5,7 +5,7 @@ Style/Documentation:
 Metrics/MethodLength:
   Max: 17
 Metrics/BlockLength:
-  Enabled: false
+  Max: 34
 Metrics/AbcSize:
   Max: 27
 Metrics/CyclomaticComplexity:
