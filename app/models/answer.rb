@@ -11,7 +11,7 @@ class Answer < ApplicationRecord
   private
 
   def answer_count_max
-    return if (1..4).include?(question.answers.count)
+    return if (0..4).include?(question.answers.count)
 
     errors.add(:base, message: 'One Question can have from 1 to 4 answers')
   end
