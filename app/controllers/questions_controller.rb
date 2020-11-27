@@ -2,17 +2,15 @@
 
 class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
-  before_action :find_test, only: %i[index new create]
+  before_action :find_test, only: %i[index new create show]
   before_action :find_question, only: %i[show destroy]
 
   def index
-    questions = @test.questions
-
-    render inline: questions.map(&:body).join('<br> ')
+    @questions = @test.questions
   end
 
   def show
-    render inline: @question.body
+    @question = @test.questions.find(params[:id])
   end
 
   def new; end
@@ -20,7 +18,7 @@ class QuestionsController < ApplicationController
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      redirect_to test_path(@test), notice: 'Вопрос создан'
+      redirect_to test_questions_path, notice: 'Вопрос создан'
     else
       render :new
     end
@@ -28,7 +26,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_path(@question.test_id), notice: 'Вопрос удален'
+    redirect_to test_questions_path, notice: 'Вопрос удален'
   end
 
   private
