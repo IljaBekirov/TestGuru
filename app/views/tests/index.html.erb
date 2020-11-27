@@ -1,0 +1,24 @@
+<h1>Список всех тестов</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>id</th>
+    <th>Body</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @tests.each do |test| %>
+    <tr>
+      <td><%= test.id %></td>
+      <td><%= test.title %></td>
+      <td><%= link_to "Просмотр", test %></td>
+      <td><%= link_to "Удалить", test, method: :delete, data: { confirm: "Вы уверены, что хотите удалить?" } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>

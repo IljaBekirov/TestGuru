@@ -1,0 +1,9 @@
+<h1>Просмотр теста №<%=@test.id %></h1>
+
+<%= @test.id %> <%= @test.title %>
+<%= link_to "Вопросы", test_questions_path(@test.id) %>
+
+<br>
+<br>
+
+<%= link_to "Назад", tests_path %>
