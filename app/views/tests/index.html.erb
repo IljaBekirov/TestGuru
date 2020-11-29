@@ -1,10 +1,15 @@
 <h1>Список всех тестов</h1>
 
+<td><%= link_to "Создать новый тест", new_test_path %></td><br><br>
+
 <table>
   <thead>
   <tr>
-    <th>id</th>
-    <th>Body</th>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Level</th>
+    <th>Category</th>
+    <th>Questions</th>
     <th></th>
   </tr>
   </thead>
@@ -14,11 +19,13 @@
     <tr>
       <td><%= test.id %></td>
       <td><%= test.title %></td>
-      <td><%= link_to "Просмотр", test %></td>
+      <td><%= test_level(test.level) %></td>
+      <td><%= find_category(test.category_id) %></td>
+      <td><%= test.questions.count %></td>
+      <td><%= link_to "Просмотр", test %> |</td>
+      <td><%= link_to "Редактировать", edit_test_path(test) %> |</td>
       <td><%= link_to "Удалить", test, method: :delete, data: { confirm: "Вы уверены, что хотите удалить?" } %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
-
-<br>

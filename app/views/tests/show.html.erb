@@ -1,9 +1,9 @@
 <h1>Просмотр теста №<%=@test.id %></h1>
 
-<%= @test.id %> <%= @test.title %>
-<%= link_to "Вопросы", test_questions_path(@test.id) %>
+<%= link_to "Создать новый вопрос", new_test_question_path(@test, @question) %><br>
+<h2><%= @test.title %><br></h2>
+<%= render 'questions/question', questions: @questions %>
 
 <br>
-<br>
 
-<%= link_to "Назад", tests_path %>
+<%= button_back(tests_path) %>

@@ -1,8 +1,5 @@
 <h1>Просмотр вопроса №<%=@question.id %></h1>
 
-<%= @question.id %> <%= @question.body %>
+<%= @question.id %> <%= @question.body %><br><br>
 
-<br>
-<br>
-
-<%= link_to "Назад", test_questions_path %>
+<%= button_back(test_path(@test)) %>
