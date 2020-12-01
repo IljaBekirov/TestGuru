@@ -9,5 +9,5 @@
 
   <%= form.submit %> |
 
-  <%= button_back(test_path(@test)) %>
+  <%= button_back(test_path(@question.test || @test)) %>
 <% end %>
