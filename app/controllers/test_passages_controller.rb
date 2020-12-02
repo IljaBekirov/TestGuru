@@ -7,11 +7,7 @@ class TestPassagesController < ApplicationController
 
   def show; end
 
-  def result
-    # @correct_questions = @test_passage.correct_questions
-    # @questions_count = @test_passage.test.questions.count
-    # @result = (@correct_questions * 100.0 / @questions_count).round(2)
-  end
+  def result; end
 
   def update
     @test_passage.accept!(params[:answer_ids])
