@@ -1,0 +1,25 @@
+<h1>Тест <%= @test_passage.test.title %> окончен!</h1>
+
+Всего вопросов: <%= @test_passage.test.questions.count %><br>
+Правильных: <%= @test_passage.correct_questions %>
+
+<p>
+  Вы набрали:
+  <% if @test_passage.successful? %>
+    <span style="color: green; ">
+      <strong>
+        <%= @test_passage.result_percent %>%
+      </strong>
+    </span><br><br>
+    Тест пройден!
+  <% else %>
+    <span style="color: red; ">
+      <strong>
+        <%= @test_passage.result_percent %>%
+      </strong>
+    </span><br><br>
+    Тест НЕ пройден!
+  <% end %>
+</p>
+
+<%= button_back(tests_path) %>
