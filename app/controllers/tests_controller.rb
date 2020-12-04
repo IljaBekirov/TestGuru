@@ -51,10 +51,6 @@ class TestsController < ApplicationController
     @test = Test.find(params[:id])
   end
 
-  def set_user
-    @user = current_user
-  end
-
   def test_params
     params.require(:test).permit(:title, :level, :category_id, :author)
   end
