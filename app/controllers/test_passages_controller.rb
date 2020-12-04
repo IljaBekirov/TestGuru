@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class TestPassagesController < ApplicationController
-  SUCCESSFUL = 85
-
   before_action :set_test_passage, only: %i[show update result]
 
   def show; end
