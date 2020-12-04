@@ -10,6 +10,12 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+      <p class="nav user">Добро пожаловать, <b><%= current_user.name %></b> Guru | <%= link_to 'Выйти', logout_path %></p>
+    <% else %>
+      <p class="nav user"><%= link_to 'Регистрация', signup_path %></p>
+    <% end %>
+
     <%= yield %>
   </body>
 
