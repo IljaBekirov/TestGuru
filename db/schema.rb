@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_201_203_162_932) do
+ActiveRecord::Schema.define(version: 20_201_204_221_051) do
   create_table 'answers', force: :cascade do |t|
     t.boolean 'correct', default: false, null: false
     t.integer 'question_id', null: false
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20_201_203_162_932) do
     t.datetime 'updated_at', precision: 6, null: false
     t.string 'email'
     t.string 'password_digest'
+    t.index ['email'], name: 'index_users_on_email', unique: true
   end
 
   add_foreign_key 'answers', 'questions'
