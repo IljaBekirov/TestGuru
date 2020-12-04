@@ -36,6 +36,4 @@ Answer.create!([
                  { body: 'Answer 7', correct: false, question_id: questions[1].id }
                ])
 
-users_name = %w[User_1 User_2 User_3]
-
-users_name.map { |name| User.create!([{ name: name }]) }
+User.create!([{ name: 'Admin', email: 'admin@test.com' }])
