@@ -10,11 +10,16 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <p class="nav user">Добро пожаловать, <b><%= current_user.name %></b> Guru | <%= link_to 'Выйти', logout_path %></p>
+    <% if user_signed_in? %>
+      <p class="nav user">
+        Добро пожаловать, <b><%= current_user.email %></b> Guru |
+        <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
+      </p>
     <% else %>
-      <p class="nav user"><%= link_to 'Регистрация', signup_path %></p>
+      <p class="nav user"><%= link_to 'Регистрация', new_user_registration_path %></p>
     <% end %>
+
+    <%= render 'shared/flash' %>
 
     <%= yield %>
   </body>
