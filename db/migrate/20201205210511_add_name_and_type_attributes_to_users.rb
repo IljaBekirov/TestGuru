@@ -6,5 +6,6 @@ class AddNameAndTypeAttributesToUsers < ActiveRecord::Migration[6.0]
     add_column :users, :first_name, :string
     add_column :users, :last_name, :string
     add_index :users, :type
+    add_reference :tests, :user, foreign_key: true # , null: false
   end
 end
