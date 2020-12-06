@@ -11,11 +11,13 @@
 categories_title = ['Backend', 'Frontend', 'Mobile Development', 'Machine Learning']
 categories = categories_title.map { |category| Category.create!([{ title: category }]) }.flatten
 
+admin = User.create!([{ first_name: 'Admin', last_name: 'Admin', email: 'admin@test.com', password: '123456' }])
+
 tests = Test.create!([
-                       { title: 'Ruby on Rails', level: 1, category_id: categories[0].id },
-                       { title: 'Html', level: 0, category_id: categories[1].id },
-                       { title: 'Python', level: 2, category_id: categories[3].id },
-                       { title: 'C++', level: 3, category_id: categories[0].id }
+                       { title: 'Ruby on Rails', level: 1, category_id: categories[0].id, author: admin[0] },
+                       { title: 'Html', level: 0, category_id: categories[1].id, author: admin[0] },
+                       { title: 'Python', level: 2, category_id: categories[3].id, author: admin[0] },
+                       { title: 'C++', level: 3, category_id: categories[0].id, author: admin[0] }
                      ])
 
 questions = Question.create!([

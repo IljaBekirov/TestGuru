@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+  <p class="nav user">
+    Добро пожаловать, <b><%= current_user.email %></b> Guru |
+    <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
+  </p>
+<% else %>
+  <p class="nav user"><%= link_to 'Регистрация', new_user_registration_path %></p>
+<% end %>

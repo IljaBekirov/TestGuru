@@ -1,0 +1,10 @@
+<h1>Просмотр теста №<%=@test.id %></h1>
+
+<%= link_to "Создать новый вопрос", new_admin_test_question_path(@test, @question) %><br>
+<h2><%= @test.title %><br></h2>
+<ol>
+  <%= render 'admin/questions/question', questions: @questions %>
+</ol>
+<br>
+<%= link_to 'Редактировать', edit_admin_test_path(@test) %> |
+<%= button_back(admin_tests_path) %>
