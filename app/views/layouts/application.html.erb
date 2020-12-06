@@ -10,11 +10,8 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <p class="nav user">Добро пожаловать, <b><%= current_user.name %></b> Guru | <%= link_to 'Выйти', logout_path %></p>
-    <% else %>
-      <p class="nav user"><%= link_to 'Регистрация', signup_path %></p>
-    <% end %>
+    <%= render 'shared/signed' %>
+    <%= render 'shared/flash' %>
 
     <%= yield %>
   </body>
@@ -22,10 +19,6 @@
   <br>
   <br>
   <footer>
-    <%= current_year %>
-    <%= github_url('IljaBekirov', 'TestGuru') %>
-    <br><br>
-    <%= link_to 'Учебный проект в онлайн-школе Thinknetica', 'https://thinknetica.com/', target: '_blank' %>
-    разработан для создания и прохождения тестов в сфере информационных технологий.
+    <%= render 'shared/footer' %>
   </footer>
 </html>

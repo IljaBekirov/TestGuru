@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-class QuestionsController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
+class Admin::QuestionsController < Admin::BaseController
+  skip_before_action :authenticate_user!
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
   before_action :find_test, only: %i[new create]
   before_action :find_question, only: %i[show destroy edit update]
 
@@ -9,7 +10,9 @@ class QuestionsController < ApplicationController
     @questions = @test.questions
   end
 
-  def show; end
+  def show
+    @answers = @question.answers
+  end
 
   def new
     @question = Question.new
@@ -18,7 +21,7 @@ class QuestionsController < ApplicationController
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      redirect_to test_path(@question.test), notice: 'Вопрос создан'
+      redirect_to admin_test_path(@question.test), notice: 'Вопрос создан'
     else
       render :new
     end
@@ -28,7 +31,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to test_path(@question.test)
+      redirect_to admin_test_path(@question.test), notice: 'Вопрос обновлен'
     else
       render :edit
     end
@@ -36,12 +39,12 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_path(@question.test), notice: 'Вопрос удален'
+    redirect_to admin_test_path(@question.test), notice: 'Вопрос удален'
   end
 
   private
 
-  def rescue_with_test_not_found
+  def rescue_with_question_not_found
     render plain: 'Вопрос не найден'
   end
 

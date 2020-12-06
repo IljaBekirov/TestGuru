@@ -1,2 +1,3 @@
-<%= flash_message(:alert) %>
-<%= flash_message(:notice) %>
+<% flash.each do |type, message| %>
+  <%= content_tag :p, message, class: "flash #{type}" %>
+<% end %>

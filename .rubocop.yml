@@ -3,7 +3,7 @@ Layout/LineLength:
 Style/Documentation:
   Enabled: false
 Metrics/MethodLength:
-  Max: 17
+  Max: 20
 Metrics/BlockLength:
   Enabled: false
 Metrics/AbcSize:

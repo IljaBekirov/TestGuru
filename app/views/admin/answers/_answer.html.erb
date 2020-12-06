@@ -1,0 +1,22 @@
+<table>
+  <thead>
+  <tr>
+    <th></th>
+    <th>Ответ</th>
+    <th>Тело ответа</th>
+    <th colspan="3">Действия</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @answers.each do |answer| %>
+    <tr>
+      <td><%= answer.id %></td>
+      <td><%= answer.correct %></td>
+      <td><%= answer.body %></td>
+      <td><%= link_to "Редактировать", edit_admin_answer_path(answer) %>  |</td>
+      <td><%= link_to "Удалить", admin_answer_path(answer), method: :delete, data: { confirm: "Вы уверены, что хотите удалить?" } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

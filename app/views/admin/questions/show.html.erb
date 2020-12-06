@@ -1,0 +1,10 @@
+<h1>Просмотр вопроса №<%=@question.id %></h1>
+
+<%= link_to "Создать новый ответ", new_admin_question_answer_path(@question) %><br>
+
+<%= @question.id %> <%= @question.body %><br><br>
+<ol>
+  <%= render 'admin/answers/answer', answers: @answers %>
+</ol>
+
+<%= button_back(admin_test_path(@question.test)) %>

@@ -1,0 +1,18 @@
+<%= form_with(model: [:admin, @test, @question, @answer], local: true) do |form| %>
+  <%= render 'shared/errors', resource: answer %>
+
+  <p>
+    <%= form.label 'Ответ' %><br>
+    <%= form.select :correct, %w[true false]%>
+    <br>
+  </p>
+
+  <p>
+    <%= form.label 'Текст ответа' %><br>
+    <%= form.text_area :body %>
+    <br>
+  </p>
+
+  <%= form.submit %> |
+  <%= button_back(admin_question_path(@answer.question || @question)) %>
+<% end %>

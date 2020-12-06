@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 
-require 'digest/sha2'
-
 class User < ApplicationRecord
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable,
+         :confirmable
+
   EMAIL_VALID = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
 
   has_many :test_passages
@@ -11,7 +16,9 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true, format: { with: EMAIL_VALID }
 
-  has_secure_password
+  def admin?
+    is_a?(Admin)
+  end
 
   def tests_list(level)
     tests.where(level: level)
