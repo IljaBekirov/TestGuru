@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class DeleteNameFromUsers < ActiveRecord::Migration[6.0]
-  def change
-    remove_column :users, :name
+  def up
+    remove_column :users, :name, if_exists: true
   end
 end

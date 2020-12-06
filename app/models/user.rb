@@ -16,6 +16,10 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true, format: { with: EMAIL_VALID }
 
+  def admin?
+    is_a?(Admin)
+  end
+
   def tests_list(level)
     tests.where(level: level)
   end
