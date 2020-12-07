@@ -1,2 +1,58 @@
 ru:
   hello: "Привет Мир!"
+  helpers:
+    select:
+      prompt: 'Выберите:'
+    submit:
+      test:
+        create: 'Создать Тест'
+        update: 'Обновить Тест'
+    label:
+      test:
+        title: 'Название'
+        level: 'Уровень'
+        category_id: 'Категория'
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        manu: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+
+  tests:
+    test:
+      start: 'Старт'
+    start:
+      success: 'Желаем удачи в прохождении теста'
+    index:
+      header: 'Список всех тестов'
+      title: 'Название'
+      level: 'Уровень'
+      category: 'Категория'
+      questions: 'Вопросы'
+      actions: 'Действия'
+
+  test_passages:
+    show:
+      passing: "Прохождение теста '%{title}'"
+      question: "Вопрос: %{number_question} из %{count}"
+      next: "Следующий"
+    result:
+      header: "Тест %{title} успешно пройден!"
+
+  admin:
+    tests:
+      show:
+        not_found: 'Тест не найден'
+      create:
+        success: 'Тест успешно создан'
+      index:
+        header: 'Список всех тестов'
+      destroy:
+        success: 'Тест успешно удален'
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест на TestGuru!"

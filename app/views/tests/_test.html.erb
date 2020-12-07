@@ -4,5 +4,5 @@
   <td><%= test_level(test.level) %></td>
   <td><%= find_category(test.category_id) %></td>
   <td><%= test.questions.count %></td>
-  <td><%= button_to 'Старт', start_test_path(test), method: :post %></td>
+  <td><%= button_to t('.start'), start_test_path(test), method: :post %></td>
 </tr>
