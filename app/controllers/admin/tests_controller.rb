@@ -30,7 +30,7 @@ class Admin::TestsController < Admin::BaseController
   def create
     @test = current_user.created_tests.new(test_params)
     if @test.save
-      redirect_to admin_tests_path, notice: 'Тест создан'
+      redirect_to admin_tests_path, notice: t('.success')
     else
       render :new
     end
@@ -38,13 +38,13 @@ class Admin::TestsController < Admin::BaseController
 
   def destroy
     @test.destroy
-    redirect_to admin_tests_path, notice: 'Тест удален'
+    redirect_to admin_tests_path, notice: t('.success')
   end
 
   private
 
   def rescue_with_test_not_found
-    render plain: 'Тест не найден'
+    render plain: t('.not_found')
   end
 
   def find_test

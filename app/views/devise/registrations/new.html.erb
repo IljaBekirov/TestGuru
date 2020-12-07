@@ -1,43 +1,43 @@
-<h2>Регистрация</h2>
+<h2><%= t('.sign_up') %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label t('.email') %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div><br>
 
   <div class="field">
-    <%= f.label :first_name %><br />
+    <%= f.label t('.first_name') %><br />
     <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
   </div><br>
 
   <div class="field">
-    <%= f.label :last_name %><br />
+    <%= f.label t('.last_name') %><br />
     <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
   </div><br>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label t('.password') %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em><%= t('.min_char', minimum_password_length: @minimum_password_length)%></em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div><br>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label t('.password_confirm') %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div><br>
 
   <div class="field">
-    <%= f.label :type %><br />
+    <%= f.label t('.type') %><br />
     <%= f.select :type, %w[Admin User], autocomplete: "type" %>
   </div><br>
 
   <div class="actions">
-    <%= f.submit "Зарегистрироваться" %>
+    <%= f.submit t('.sign_up') %>
   </div>
 <% end %><br>
 
