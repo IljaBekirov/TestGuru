@@ -1,7 +1,7 @@
 <% flash.each do |type, message| %>
   <% klass = if type == 'notice' %>
     <% 'primary' %>
-  <% else %>
+  <% elsif type == 'alert'%>
     <% 'danger' %>
   <% end %>
   <div class="alert alert-<%= klass %> alert-dismissible fade show" role="alert">
