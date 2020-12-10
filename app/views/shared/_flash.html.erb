@@ -1,24 +1,13 @@
 <% flash.each do |type, message| %>
-  <%# binding.pry %>
   <% klass = if type == 'notice' %>
     <% 'primary' %>
   <% else %>
     <% 'danger' %>
   <% end %>
-  <%# binding.pry %>
   <div class="alert alert-<%= klass %> alert-dismissible fade show" role="alert">
     <%= message %>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <%#= content_tag :p, message, class: "flash #{type}" %>
 <% end %>
-
-
-<!--<div class="alert alert-warning alert-dismissible fade show" role="alert">-->
-<!--  <strong>Holy guacamole!</strong> You should check in on some of those fields below.-->
-<!--  <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
-<!--    <span aria-hidden="true">&times;</span>-->
-<!--  </button>-->
-<!--</div>-->
