@@ -39,6 +39,9 @@ en:
       next: "Next"
     result:
       header: "The %{title} Test was Completed!"
+    gist:
+      success: "Gist was successfully created!"
+      failure: "An error occurred whyile saving gist"
 
   admin:
     tests:

@@ -41,6 +41,9 @@ ru:
       next: "Следующий"
     result:
       header: "Тест %{title} успешно пройден!"
+    gist:
+      success: "Gist успешно создан"
+      failure: "Во время сохранения gist произошла ошибка"
 
   admin:
     tests:
