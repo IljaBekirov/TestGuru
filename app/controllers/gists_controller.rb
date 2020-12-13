@@ -9,23 +9,17 @@ class GistsController < ApplicationController
     client = GistQuestionService.new(@question)
     result = client.call
 
-    client.success? ? check_result(result) : flash[:alert] = t('.service_error')
+    client.success? ? add_gist_db(result) : flash[:alert] = t('.service_error')
 
     redirect_to @test_passage
   end
 
   private
 
-  def check_result(result)
-    return flash[:alert] = t('.failure') unless result
-
-    add_gist_db(result)
-    flash[:notice] = t('.success')
-  end
-
   def add_gist_db(result)
     gist = Gist.new(user_id: current_user.id, question_id: @question.id, url: result.html_url)
-    flash[:alert] = t('.failure') unless gist.save
+
+    gist.save ? flash[:notice] = t('.success') : flash[:alert] = t('.failure')
   end
 
   def find_test_passage
