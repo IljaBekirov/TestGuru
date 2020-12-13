@@ -7,8 +7,9 @@ class GistsController < ApplicationController
 
   def create
     client = GistQuestionService.new(@question)
-    if client.present?
-      result = client.call
+    result = client.call
+
+    if client.success?
       if result
         add_gist_db(result)
         flash[:notice] = t('.success')

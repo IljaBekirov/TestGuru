@@ -9,8 +9,12 @@ class GistQuestionService
 
   def call
     @client.create_gist(gist_params)
-  rescue StandardError
-    false
+  end
+
+  def success?
+    return false if @client.last_response.blank?
+
+    @client.last_response.status == 201 || @client.last_response.status == 200
   end
 
   private
