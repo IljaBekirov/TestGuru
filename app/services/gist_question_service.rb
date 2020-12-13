@@ -9,6 +9,8 @@ class GistQuestionService
 
   def call
     @client.create_gist(gist_params)
+  rescue StandardError
+    false
   end
 
   def success?
