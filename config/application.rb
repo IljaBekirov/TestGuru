@@ -21,5 +21,9 @@ module TestGuru
     # the framework and any gems in your application.
 
     config.autoload_paths << "#{Rails.root}/lib/clients"
+
+    Bundler.require(*Rails.groups)
+    Dotenv::Railtie.load
+    HOSTNAME = ENV['HOSTNAME']
   end
 end

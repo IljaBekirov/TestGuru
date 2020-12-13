@@ -1,6 +1,9 @@
 ru:
   hello: "Привет Мир!"
+  description: "Вопрос из теста %{title} от TestGuru"
   helpers:
+    navigation:
+      back: 'Назад'
     select:
       prompt: 'Выберите:'
     submit:
@@ -40,12 +43,12 @@ ru:
       question: "Вопрос: %{number_question} из %{count}"
       next: "Следующий"
     result:
-      header: "Тест %{title} успешно пройден!"
-    gist:
-      success: "Gist успешно создан"
-      failure: "Во время сохранения gist произошла ошибка"
+      header: "Тест %{title} окончен!"
 
   admin:
+    gists:
+      index:
+        header: Список всех gists
     tests:
       show:
         not_found: 'Тест не найден'
@@ -59,3 +62,9 @@ ru:
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
+
+  gists:
+    create:
+      success: "Gist успешно создан"
+      failure: "Во время сохранения gist произошла ошибка"
+      service_error: "Ошибка при соединении с сервисом"
