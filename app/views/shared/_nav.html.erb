@@ -1,5 +1,5 @@
 <nav class="navbar navbar-light bg-light">
-  <p>
+  <span>
     <% if current_user&.admin? %>
       <a href="/admin/tests" type="button" class="btn btn-outline-primary">
         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gear-wide" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -8,7 +8,7 @@
       </a>
     <% end %>
     <%= link_to 'TestGuru', root_path, class: 'navbar-brand' %>
-  </p>
+  </span>
 
   <span class="navbar-text">
     <% if user_signed_in? %>

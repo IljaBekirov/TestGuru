@@ -2,9 +2,14 @@ en:
   activerecord:
     models:
       test: 'Test'
+      question: 'Question'
+      url: 'URL'
+      user: 'User'
+
     attributes:
       test:
         title: 'Title'
+
     errors:
       messages:
         blank: "can't be blank"

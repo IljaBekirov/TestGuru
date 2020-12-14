@@ -1,6 +1,9 @@
 en:
   hello: "Hello world"
+  description: "A question about %{title} from TestGuru"
   helpers:
+    navigation:
+      back: 'Back'
     select:
       prompt: 'Please select:'
     submit:
@@ -41,6 +44,9 @@ en:
       header: "The %{title} Test was Completed!"
 
   admin:
+    gists:
+      index:
+        header: "List of all gists"
     tests:
       show:
         not_found: 'Test not found'
@@ -53,3 +59,9 @@ en:
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
+
+  gists:
+    create:
+      success: "Gist was successfully created!"
+      failure: "An error occurred while saving gist"
+      service_error: "Error connecting to the service"

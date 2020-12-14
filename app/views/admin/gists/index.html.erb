@@ -1,0 +1,16 @@
+<h1 class="text-center"> <%= t('.header') %> </h1>
+
+<table class="table table-hover">
+  <thead class="bg-primary text-light">
+  <tr>
+    <th scope="col"></th>
+    <th scope="col"><%= t('activerecord.models.question') %></th>
+    <th scope="col"><%= t('activerecord.models.url') %></th>
+    <th scope="col"><%= t('activerecord.models.user') %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <%= render @gists %>
+  </tbody>
+</table>
+<%= link_to t('helpers.navigation.back'), admin_tests_path %>

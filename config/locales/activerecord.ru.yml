@@ -2,6 +2,9 @@ ru:
   activerecord:
     models:
       test: 'Тест'
+      question: 'Вопрос'
+      url: 'Ссылка'
+      user: 'Пользователь'
 
     attributes:
       test:
