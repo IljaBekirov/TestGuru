@@ -33,6 +33,7 @@ gem 'bootstrap'
 gem 'devise'
 gem 'faraday'
 gem 'jquery-rails'
+gem 'octicons_helper'
 gem 'octokit'
 gem 'rails-i18n'
 

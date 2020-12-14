@@ -5,8 +5,12 @@
 <table class="table table-hover">
   <thead class="bg-primary text-light">
   <tr>
-    <th></th>
-    <th>Название</th>
+<!--    <th>#</th>-->
+    <th class="sort-by-title pointer">
+      Название
+      <%= octicon 'arrow-up', class: 'text-success hide' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </th>
     <th>Уровень</th>
     <th>Категория</th>
     <th>Вопросы</th>
