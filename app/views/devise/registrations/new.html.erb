@@ -5,17 +5,17 @@
 
   <div class="field">
     <%= f.label t('.email') %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"  %>
   </div><br>
 
   <div class="field">
     <%= f.label t('.first_name') %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control"  %>
   </div><br>
 
   <div class="field">
     <%= f.label t('.last_name') %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control"  %>
   </div><br>
 
   <div class="field">
@@ -23,17 +23,17 @@
     <% if @minimum_password_length %>
     <em><%= t('.min_char', minimum_password_length: @minimum_password_length)%></em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", id: "pass", class: "form-control"  %>
   </div><br>
 
   <div class="field">
     <%= f.label t('.password_confirm') %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", id: "confirm_pass", class: "form-control" %>
   </div><br>
 
   <div class="field">
     <%= f.label t('.type') %><br />
-    <%= f.select :type, %w[Admin User], autocomplete: "type" %>
+    <%= f.select :type, %w[Admin User], autocomplete: "type", class:"custom-select" %>
   </div><br>
 
   <div class="actions">
