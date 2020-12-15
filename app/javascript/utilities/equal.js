@@ -4,11 +4,7 @@ document.addEventListener('turbolinks:load', function () {
 
   pass.oninput = function () {
     if (pass.value !== '') {
-      if (pass.value === confirm_pass.value) {
-        addValidClass(pass, confirm_pass)
-      } else {
-        addInValidClass(pass, confirm_pass)
-      }
+      findEqual(pass, confirm_pass)
     } else {
       clearClass(pass, confirm_pass)
     }
@@ -16,16 +12,20 @@ document.addEventListener('turbolinks:load', function () {
 
   confirm_pass.oninput = function () {
     if (confirm_pass.value !== '') {
-      if (pass.value === confirm_pass.value) {
-        addValidClass(pass, confirm_pass)
-      } else {
-        addInValidClass(pass, confirm_pass)
-      }
+      findEqual(pass, confirm_pass)
     } else {
       clearClass(pass, confirm_pass)
     }
   }
 })
+
+function findEqual(pass, confirm_pass) {
+  if (pass.value === confirm_pass.value) {
+    addValidClass(pass, confirm_pass)
+  } else {
+    addInValidClass(pass, confirm_pass)
+  }
+}
 
 function clearClass(pass, confirm_pass) {
   confirm_pass.classList.remove('is-valid')
