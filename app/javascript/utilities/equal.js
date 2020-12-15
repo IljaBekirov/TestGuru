@@ -2,22 +2,32 @@ document.addEventListener('turbolinks:load', function () {
   var pass = document.getElementById('pass')
   var confirm_pass = document.getElementById('confirm_pass')
 
-  pass.oninput = function () {
-    if (pass.value !== '') {
-      findEqual(pass, confirm_pass)
-    } else {
-      clearClass(pass, confirm_pass)
+  if (pass !== null && confirm_pass !== null) {
+    pass.oninput = function () {
+      checkPassValue(pass, confirm_pass)
     }
-  }
 
-  confirm_pass.oninput = function () {
-    if (confirm_pass.value !== '') {
-      findEqual(pass, confirm_pass)
-    } else {
-      clearClass(pass, confirm_pass)
+    confirm_pass.oninput = function () {
+      checkConfirmPassValue(pass, confirm_pass)
     }
   }
 })
+
+function checkPassValue(pass, confirm_pass) {
+  if (pass.value !== '') {
+    findEqual(pass, confirm_pass)
+  } else {
+    clearClass(pass, confirm_pass)
+  }
+}
+
+function checkConfirmPassValue(pass, confirm_pass) {
+  if (confirm_pass.value !== '') {
+    findEqual(pass, confirm_pass)
+  } else {
+    clearClass(pass, confirm_pass)
+  }
+}
 
 function findEqual(pass, confirm_pass) {
   if (pass.value === confirm_pass.value) {
