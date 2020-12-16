@@ -48,6 +48,8 @@ en:
       index:
         header: "List of all gists"
     tests:
+      form_inline:
+        submit: "Ok"
       show:
         not_found: 'Test not found'
       create:
