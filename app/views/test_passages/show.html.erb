@@ -3,9 +3,11 @@
 <% now = @test_passage.number_question %>
 <% max = @test_passage.test.questions.count %>
 
-<div class="progress">
-  <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: <%= progress(now, max) %>%" aria-valuenow="<%= now %>" aria-valuemin="0" aria-valuemax="<%= max %>"></div>
-</div><br>
+
+<%= content_tag(:div, content_tag(:div, "#{progress(now, max)}%",
+                                  class: 'bar-progress',
+                                  data: { percent: progress(now, max)}),
+                class: 'background-progress text-center') %>
 
 <p>
   <b>
