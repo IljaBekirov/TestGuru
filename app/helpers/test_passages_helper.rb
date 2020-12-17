@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module TestPassagesHelper
-  def progress(now, max)
-    now * 100 / max
+  def progress_percent(number_question, questions_count)
+    number_question * 100 / questions_count
   end
 end
