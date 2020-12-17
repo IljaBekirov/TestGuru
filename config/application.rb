@@ -7,6 +7,7 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+Dotenv::Railtie.load if %w[development test].include? ENV['RAILS_ENV']
 
 module TestGuru
   class Application < Rails::Application
@@ -21,9 +22,5 @@ module TestGuru
     # the framework and any gems in your application.
 
     config.autoload_paths << "#{Rails.root}/lib/clients"
-
-    Bundler.require(*Rails.groups)
-    Dotenv::Railtie.load
-    HOSTNAME = ENV['HOSTNAME']
   end
 end
