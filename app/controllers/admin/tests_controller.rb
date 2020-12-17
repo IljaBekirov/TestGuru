@@ -3,7 +3,8 @@
 class Admin::TestsController < Admin::BaseController
   skip_before_action :authenticate_user!
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
-  before_action :find_test, only: %i[show edit update destroy start]
+  before_action :find_tests, only: %i[index update_inline]
+  before_action :find_test, only: %i[show edit update destroy start update_inline]
 
   def index
     @tests = Test.all
@@ -27,6 +28,14 @@ class Admin::TestsController < Admin::BaseController
     end
   end
 
+  def update_inline
+    if @test.update(test_params)
+      redirect_to admin_tests_path
+    else
+      render :index
+    end
+  end
+
   def create
     @test = current_user.created_tests.new(test_params)
     if @test.save
@@ -45,6 +54,10 @@ class Admin::TestsController < Admin::BaseController
 
   def rescue_with_test_not_found
     render plain: t('.not_found')
+  end
+
+  def find_tests
+    @tests = Test.all
   end
 
   def find_test

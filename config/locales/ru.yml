@@ -50,6 +50,8 @@ ru:
       index:
         header: Список всех gists
     tests:
+      form_inline:
+        submit: "ОК"
       show:
         not_found: 'Тест не найден'
       create:
