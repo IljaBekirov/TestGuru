@@ -38,4 +38,9 @@ Answer.create!([
                  { body: 'Answer 7', correct: false, question_id: questions[1].id }
                ])
 
-User.create!([{ name: 'Admin', email: 'admin@test.com' }])
+User.create!([{ email: 'admin@admin.com',
+                password: '123456',
+                password_confirmation: '123456',
+                type: 'Admin',
+                first_name: 'Admin',
+                last_name: 'Admin' }])
