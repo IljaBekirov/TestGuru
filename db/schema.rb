@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 2020_12_17_163522) do
 
   create_table "gists", force: :cascade do |t|
     t.string "url", null: false
-    t.integer "question_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "question_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_gists_on_question_id"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2020_12_17_163522) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category_id"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["level", "title"], name: "index_tests_on_level_and_title", unique: true
     t.index ["user_id"], name: "index_tests_on_user_id"

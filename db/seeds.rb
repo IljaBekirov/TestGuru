@@ -39,6 +39,7 @@ Answer.create!([
                ])
 
 User.create!([{ email: 'admin@admin.com',
+                name: 'Name',
                 password: '123456',
                 password_confirmation: '123456',
                 type: 'Admin',
