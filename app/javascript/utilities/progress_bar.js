@@ -3,9 +3,6 @@ document.addEventListener('turbolinks:load', function () {
   var inx = 0
 
   if (progress) {
-    // var percent = progress.dataset.percent
-    // progress.style.width = percent + '%'
-
     var width = progress.dataset.percent
     var id = setInterval(frame, 30)
 
