@@ -70,3 +70,13 @@ ru:
       success: "Gist успешно создан"
       failure: "Во время сохранения gist произошла ошибка"
       service_error: "Ошибка при соединении с сервисом"
+
+  feedbacks:
+    new:
+      header: "Обратная связь"
+    form:
+      title: "Заголовок"
+      message: "Сообщение"
+      send: "Отправить"
+    create:
+      success: "Ваше сообщение успешно отправлено"

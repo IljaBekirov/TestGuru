@@ -67,3 +67,13 @@ en:
       success: "Gist was successfully created!"
       failure: "An error occurred while saving gist"
       service_error: "Error connecting to the service"
+
+  feedbacks:
+    new:
+      header: "Feedback"
+    form:
+      title: "Title"
+      message: "Message"
+      send: "Send"
+    create:
+      success: "Your message has been successfully sent"

@@ -17,9 +17,11 @@
   <body>
     <%= render 'shared/nav' %>
 
-    <div class="container">
-      <%= render 'shared/flash' %>
-      <%= yield %>
+    <div class="content">
+      <div class="container">
+        <%= render 'shared/flash' %>
+        <%= yield %>
+      </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -28,7 +30,5 @@
 
   <br>
   <br>
-  <footer>
-    <%= render 'shared/footer' %>
-  </footer>
+  <%= render 'shared/footer', style: 'info' %>
 </html>

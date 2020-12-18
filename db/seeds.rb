@@ -16,8 +16,7 @@ admin = User.create!([{ first_name: 'Admin',
                         email: 'admin@test.com',
                         password: '123456',
                         password_confirmation: '123456',
-                        type: 'Admin'
-                      }])
+                        type: 'Admin' }])
 
 tests = Test.create!([
                        { title: 'Ruby on Rails', level: 1, category_id: categories[0].id, author: admin[0] },
@@ -43,11 +42,3 @@ Answer.create!([
                  { body: 'Answer 6', correct: true, question_id: questions[0].id },
                  { body: 'Answer 7', correct: false, question_id: questions[1].id }
                ])
-
-# User.create!([{ email: 'admin@admin.com',
-#                 name: 'Name',
-#                 password: '123456',
-#                 password_confirmation: '123456',
-#                 type: 'Admin',
-#                 first_name: 'Admin',
-#                 last_name: 'Admin' }])
