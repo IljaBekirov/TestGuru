@@ -3,16 +3,16 @@
 
   <p>
     <%= form.label 'Ответ' %><br>
-    <%= form.select :correct, %w[true false]%>
+    <%= form.select :correct, %w[true false], {}, { class: "custom-select" } %>
     <br>
   </p>
 
   <p>
     <%= form.label 'Текст ответа' %><br>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, class: 'form-control' %>
     <br>
   </p>
 
-  <%= form.submit %> |
+  <%= form.submit class: 'btn btn-outline-success' %>
   <%= button_back(admin_question_path(@answer.question || @question)) %>
 <% end %>
