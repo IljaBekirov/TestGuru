@@ -10,6 +10,6 @@ module ApplicationHelper
   end
 
   def button_back(url)
-    link_to 'Назад', url
+    link_to 'Назад', url, class: 'btn btn-outline-danger'
   end
 end
