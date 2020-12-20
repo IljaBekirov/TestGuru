@@ -4,9 +4,10 @@
 <% questions_count = @test_passage.test.questions.count.to_i %>
 
 
-<%= content_tag(:div, content_tag(:div, "#{progress_percent(number_question, questions_count)}%",
+<%= content_tag(:div, content_tag(:div, "#{progress_percent(number_question - 1, questions_count)}%",
                                   class: 'bar-progress',
-                                  data: { percent: progress_percent(number_question, questions_count)}),
+                                  data: { percent: progress_percent(number_question - 1, questions_count),
+                                          previous: progress_percent(number_question - 2, questions_count) }),
                 class: 'background-progress text-center') %>
 
 <p>
