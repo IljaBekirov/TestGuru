@@ -46,7 +46,11 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def destroy
-    @test.destroy
+    @test.questions.map { |question| question.answers.map(&:destroy) }
+    @test.questions.reload.map(&:destroy)
+    @test.test_passages.map(&:destroy)
+
+    @test.reload.destroy
     redirect_to admin_tests_path, notice: t('.success')
   end
 

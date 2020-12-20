@@ -27,6 +27,7 @@ en:
       start: 'Start'
     start:
       success: 'Good luck with the test'
+      error: 'There are no questions in this test'
     index:
       header: 'List of all tests'
       title: 'Title'
