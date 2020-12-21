@@ -8,6 +8,11 @@ class TestsController < ApplicationController
   end
 
   def start
+    if @test.questions.blank?
+      redirect_to root_path, alert: t('.no_questions')
+      return
+    end
+
     current_user.tests.push(@test)
     redirect_to current_user.test_passage(@test), notice: t('.success')
   end

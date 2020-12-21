@@ -1,0 +1,15 @@
+<%= form_for :feedback, url: feedbacks_path, locale: true do |form| %>
+  <div>
+    <%= form.label :title, t('.title') %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :message, t('.message') %>
+    <%= form.text_area :message, class: 'form-control', minlength: 10, maxlength: 500 %>
+  </div>
+  <br>
+  <div>
+    <%= form.submit t('.send'), class: 'btn btn-outline-info' %>
+  </div>
+<% end %>

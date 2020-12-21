@@ -27,6 +27,7 @@ en:
       start: 'Start'
     start:
       success: 'Good luck with the test'
+      no_questions: 'There are no questions in this test'
     index:
       header: 'List of all tests'
       title: 'Title'
@@ -67,3 +68,13 @@ en:
       success: "Gist was successfully created!"
       failure: "An error occurred while saving gist"
       service_error: "Error connecting to the service"
+
+  feedbacks:
+    new:
+      header: "Feedback"
+    form:
+      title: "Title"
+      message: "Message"
+      send: "Send"
+    create:
+      success: "Your message has been successfully sent"

@@ -3,10 +3,10 @@
 
   <p>
     <%= form.label 'Вопрос' %><br>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, class: 'form-control' %>
   </p>
 
-  <%= form.submit %> |
+  <%= form.submit class: 'btn btn-outline-success' %>
 
   <%= button_back(admin_test_path(@question.test || @test)) %>
 <% end %>

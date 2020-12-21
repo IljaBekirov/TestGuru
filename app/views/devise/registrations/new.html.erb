@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= f.label t('.type') %><br />
-    <%= f.select :type, %w[Admin User], autocomplete: "type", class:"custom-select" %>
+    <%= f.select :type, %w[Admin User], {}, { autocomplete: "type", class: "custom-select" } %>
   </div><br>
 
   <div class="actions">

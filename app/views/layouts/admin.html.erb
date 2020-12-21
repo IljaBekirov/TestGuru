@@ -12,15 +12,15 @@
   <body>
     <%= render 'admin/nav' %>
 
-    <div class="container">
-      <%= render 'shared/flash' %>
-      <%= yield %>
+    <div class="content">
+      <div class="container">
+        <%= render 'shared/flash' %>
+        <%= yield %>
+      </div>
     </div>
   </body>
 
   <br>
   <br>
-  <footer>
-    <%= render 'shared/footer' %>
-  </footer>
+  <%= render 'shared/footer', style: 'primary' %>
 </html>
