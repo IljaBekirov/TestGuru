@@ -9,7 +9,7 @@ class TestsController < ApplicationController
 
   def start
     if @test.questions.blank?
-      redirect_to root_path, alert: t('.error')
+      redirect_to root_path, alert: t('.no_questions')
       return
     end
 
