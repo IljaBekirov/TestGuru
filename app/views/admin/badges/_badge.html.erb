@@ -1,0 +1,8 @@
+<tr>
+  <td><%= image_tag "#{badge.image_name}", height: '100', class: 'mx-auto d-block' %></td>
+  <td><%= badge.name %></td>
+  <td><%= Badge::BADGES[badge.rule_type.to_sym][:desc] %></td>
+  <td><%= find_condition(badge) %></td>
+  <td><%= link_to t('helpers.links.edit'), edit_admin_badge_path(badge) %></td>
+  <td><%= link_to "Удалить", admin_badge_path(badge), method: :delete, data: { confirm: "Вы уверены, что хотите удалить?" } %></td>
+</tr>

@@ -1,0 +1,20 @@
+<h1 class="text-center"> <%= t('.header') %> </h1>
+
+<td><%= link_to "Создать новое достижение", new_admin_badge_path %></td><br><br>
+
+<table class="table table-hover">
+  <thead class="bg-primary text-light">
+  <tr style="text-align: center">
+    <th scope="col" style="width: 5%"></th>
+    <th scope="col">Название</th>
+    <th scope="col">Описание</th>
+    <th scope="col">Условие</th>
+    <th colspan="2" scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <%= render @badges %>
+  </tbody>
+</table>
+
+<%= button_back(admin_tests_path) %>

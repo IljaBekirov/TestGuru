@@ -1,0 +1,42 @@
+<div class="row">
+
+  <div class="tab">
+    <button id="defaultOpen" class="tablinks" onclick="openBadge(event, 'badges')">Ваши награды</button>
+    <button class="tablinks" onclick="openBadge(event, 'badges_check')">Все возможные награды</button>
+  </div>
+
+  <div id="badges" class="tabcontent">
+    <% badges_check.each do |badge| %>
+          <%= image_tag "#{badge.image_name}",   height: '100', title: "#{badge.name}" %>
+    <% end %>
+  </div>
+
+  <div id="badges_check" class="tabcontent">
+    <% badges.each do |badge| %>
+      <% unless badges_check.map(&:id).include?(badge.id) %>
+        <% grayscale = 'filter: grayscale(100%);' %>
+      <% end %>
+      <%= image_tag "#{badge.image_name}", height: '100', style: "#{grayscale}", title: "#{badge.name}" %>
+    <% end %>
+  </div>
+</div>
+
+
+<script>
+  function openBadge(evt, badgeType) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(badgeType).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+
+  // Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
+</script>
