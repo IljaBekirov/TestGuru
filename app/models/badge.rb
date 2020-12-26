@@ -7,6 +7,6 @@ class Badge < ApplicationRecord
   BADGES = {
     first_attempt: { desc: 'Прохождение теста с n-ой попытки' },
     all_categories: { desc: 'Все тесты категории', sel: Category.all.map { |a| [a.title, a.id] } },
-    all_level: { desc: 'Все тесты уровня', sel: Test.all.map { |a| [a.level, a.level] } }
+    all_level: { desc: 'Все тесты уровня', sel: Test.all.map { |a| [a.level, a.level] }.uniq }
   }.freeze
 end
