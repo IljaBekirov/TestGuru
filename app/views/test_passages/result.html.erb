@@ -4,6 +4,10 @@
 Правильных: <%= @test_passage.correct_questions %>
 
 <p>
+  <% @test_passage.badges.map do |badge| %>
+    <%= image_tag "#{badge.image_name}", height: '50', title: "#{badge.name}"%>
+  <% end %>
+  <br>
   Вы набрали:
   <% if @test_passage.successful? %>
     <span style="color: green; ">
