@@ -4,6 +4,7 @@ class TestPassage < ApplicationRecord
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
+  has_and_belongs_to_many :badges, dependent: :destroy
 
   SUCCESSFUL = 85
 
