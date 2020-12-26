@@ -12,7 +12,8 @@ class TestPassagesController < ApplicationController
 
     if @test_passage.completed?
       check_badges(@test_passage) if @test_passage.completed?
-      TestsMailer.completed_test(@test_passage).deliver_now
+      # Fail in heroku
+      # TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show
