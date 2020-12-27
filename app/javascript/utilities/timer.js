@@ -3,6 +3,7 @@ document.addEventListener('turbolinks:load', function() {
 
   if (timerView) {
     var timers = timerView.dataset.timer
+    var userTestId = timerView.dataset.id
 
     setInterval(function() {
       if (timers > 0) {
@@ -19,7 +20,7 @@ document.addEventListener('turbolinks:load', function() {
         timerView.innerHTML = resultTime
       } else {
         alert('Ваше время вышло!')
-        document.querySelector('form').submit()
+        window.location.replace('/test_passages/' + userTestId + '/result');
       }
     }, 1000)
   }
