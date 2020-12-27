@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_201_217_163_522) do
+ActiveRecord::Schema.define(version: 20_201_226_205_447) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -23,6 +23,29 @@ ActiveRecord::Schema.define(version: 20_201_217_163_522) do
     t.datetime 'updated_at', precision: 6, null: false
     t.string 'body'
     t.index ['question_id'], name: 'index_answers_on_question_id'
+  end
+
+  create_table 'badges', force: :cascade do |t|
+    t.string 'name', null: false
+    t.string 'image_name', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.string 'rule_type', default: 'other', null: false
+    t.string 'condition'
+  end
+
+  create_table 'badges_test_passages', force: :cascade do |t|
+    t.bigint 'badge_id'
+    t.bigint 'test_passage_id'
+    t.index ['badge_id'], name: 'index_badges_test_passages_on_badge_id'
+    t.index ['test_passage_id'], name: 'index_badges_test_passages_on_test_passage_id'
+  end
+
+  create_table 'badges_users', force: :cascade do |t|
+    t.bigint 'user_id'
+    t.bigint 'badge_id'
+    t.index ['badge_id'], name: 'index_badges_users_on_badge_id'
+    t.index ['user_id'], name: 'index_badges_users_on_user_id'
   end
 
   create_table 'categories', force: :cascade do |t|
@@ -68,6 +91,7 @@ ActiveRecord::Schema.define(version: 20_201_217_163_522) do
     t.datetime 'updated_at', precision: 6, null: false
     t.integer 'category_id'
     t.bigint 'user_id'
+    t.integer 'timer'
     t.index ['category_id'], name: 'index_tests_on_category_id'
     t.index %w[level title], name: 'index_tests_on_level_and_title', unique: true
     t.index ['user_id'], name: 'index_tests_on_user_id'
