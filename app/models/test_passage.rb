@@ -32,6 +32,16 @@ class TestPassage < ApplicationRecord
     test.questions.order(:id).where('id < ?', current_question.id).size + 1
   end
 
+  def time_over?
+    return false unless test.timer
+
+    Time.current > test_ending_time
+  end
+
+  def test_ending_time
+    created_at + test.timer.seconds
+  end
+
   private
 
   def correct_answer?(answer_ids)
