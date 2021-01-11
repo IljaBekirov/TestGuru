@@ -4,9 +4,19 @@ class Badge < ApplicationRecord
   has_and_belongs_to_many :users, depend: :destroy
   has_and_belongs_to_many :test_passages, depend: :destroy
 
-  BADGES = {
-    first_attempt: { desc: 'Прохождение теста с n-ой попытки' },
-    all_categories: { desc: 'Все тесты категории', sel: Category.all.map { |a| [a.title, a.id] } },
-    all_level: { desc: 'Все тесты уровня', sel: Test.all.map { |a| [a.level, a.level] }.uniq }
-  }.freeze
+  def self.all_type_badges
+    {
+      first_attempt: { desc: 'Прохождение теста с n-ой попытки' },
+      all_categories: { desc: 'Все тесты категории' },
+      all_level: { desc: 'Все тесты уровня' }
+    }
+  end
+
+  def self.all_categories
+    Category.all.map { |category| [category.title, category.id] }
+  end
+
+  def self.all_level
+    Test.all.map { |test| [test.level, test.level] }.uniq
+  end
 end

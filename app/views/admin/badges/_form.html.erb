@@ -25,14 +25,14 @@
 
   <div class="field">
     <%= form.label :rule_type %><br>
-    <%= form.select  :rule_type, Badge::BADGES.map { |a| [a.last[:desc], a.first] }, { include_blank: true }, { onchange: "findOption(this.options[this.selectedIndex].value);", class: "custom-select" } %>
+    <%= form.select  :rule_type, Badge.all_type_badges.map { |a| [a.last[:desc], a.first] }, { include_blank: true }, { onchange: "findOption(this.options[this.selectedIndex].value);", class: "custom-select" } %>
   </div><br>
 
   <div>
     <%= form.label :condition %><br>
     <%= form.text_field :first_attempt, class: 'form-control hide first_attempt', style: "#{style[:first_attempt]}" %>
-    <%= form.select :all_categories, Badge::BADGES[:all_categories][:sel], {}, { class: 'form-control hide all_categories', style: "#{style[:all_categories]}" } %>
-    <%= form.select :all_level, Badge::BADGES[:all_level][:sel].map { |a| [test_level(a.first), a.last] }, {}, { class: 'form-control hide all_level', style: "#{style[:all_level]}" } %>
+    <%= form.select :all_categories, Badge.all_categories, {}, { class: 'form-control hide all_categories', style: "#{style[:all_categories]}" } %>
+    <%= form.select :all_level, Badge.all_level.map { |a| [test_level(a.first), a.last] }, {}, { class: 'form-control hide all_level', style: "#{style[:all_level]}" } %>
   </div><br>
 
   <p><%= form.submit %></p>
@@ -46,18 +46,22 @@
     var all_level = document.querySelector('.all_level')
     var option = select.value
 
-    if (option === 'all_categories') {
-      first_attempt.style.display = 'none';
-      all_level.style.display = 'none';
-      all_categories.style.display = 'block';
-    } else if (option === 'all_level') {
-      first_attempt.style.display = 'none';
-      all_level.style.display = 'block';
-      all_categories.style.display = 'none';
-    } else if (option === 'first_attempt') {
-      first_attempt.style.display = 'block';
-      all_level.style.display = 'none';
-      all_categories.style.display = 'none';
+    switch (option) {
+      case 'all_categories':
+        first_attempt.style.display = 'none';
+        all_level.style.display = 'none';
+        all_categories.style.display = 'block';
+        break;
+      case 'all_level':
+        first_attempt.style.display = 'none';
+        all_level.style.display = 'block';
+        all_categories.style.display = 'none';
+        break;
+      case 'first_attempt':
+        first_attempt.style.display = 'block';
+        all_level.style.display = 'none';
+        all_categories.style.display = 'none';
+        break;
     }
   }
 </script>

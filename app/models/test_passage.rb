@@ -10,6 +10,13 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
 
+  scope :pass, -> { where('pass = ?', true) }
+
+  def pass_status
+    self.pass = true if successful?
+    save!
+  end
+
   def successful?
     result_percent >= SUCCESSFUL
   end
