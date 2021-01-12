@@ -12,9 +12,9 @@ class TestPassage < ApplicationRecord
 
   scope :pass, -> { where('pass = ?', true) }
 
-  def pass_status
+  def pass_status!
     self.pass = true if successful?
-    save!
+    save
   end
 
   def successful?

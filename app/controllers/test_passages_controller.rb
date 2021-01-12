@@ -11,7 +11,7 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
-      @test_passage.pass_status
+      @test_passage.pass_status!
       check_badges(@test_passage) if @test_passage.successful?
       # Fail in heroku
       # TestsMailer.completed_test(@test_passage).deliver_now
