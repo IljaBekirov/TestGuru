@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   root to: 'tests#index'
 
+  resources :badges
   resources :tests, only: :index do
     post :start, on: :member
   end
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :badges
     resources :gists, only: %i[index]
     resources :tests do
       patch :update_inline, on: :member

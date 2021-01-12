@@ -4,10 +4,18 @@ class TestPassage < ApplicationRecord
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
+  has_and_belongs_to_many :badges, dependent: :destroy
 
   SUCCESSFUL = 85
 
   before_validation :before_validation_set_first_question, on: :create
+
+  scope :pass, -> { where('pass = ?', true) }
+
+  def pass_status!
+    self.pass = true if successful?
+    save
+  end
 
   def successful?
     result_percent >= SUCCESSFUL

@@ -1,0 +1,67 @@
+<%= form_with model: [:admin, badge], local: true do |form| %>
+  <% style = find_style(badge) %>
+
+  <%= render 'shared/errors', resource: badge %>
+
+  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+    <div class="form-group ">
+      <%= form.label :image %><br>
+      <div class="form-check-inline">
+        <% @images.each do |image| %>
+            <label class="btn btn-outline-primary" style="width: 100px; height: 100px">
+              <%= form.radio_button :image_name,image %>
+                <%= image_tag(image, height: "60", class: 'mx-auto d-block') %>
+            </label>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div><br>
+
+  <div class="field">
+    <%= form.label :rule_type %><br>
+    <%= form.select  :rule_type, Badge.all_type_badges.map { |a| [a.last[:desc], a.first] }, { include_blank: true }, { onchange: "findOption(this.options[this.selectedIndex].value);", class: "custom-select" } %>
+  </div><br>
+
+  <div>
+    <%= form.label :condition %><br>
+    <%= form.text_field :first_attempt, class: 'form-control hide first_attempt', style: "#{style[:first_attempt]}" %>
+    <%= form.select :all_categories, Badge.all_categories, {}, { class: 'form-control hide all_categories', style: "#{style[:all_categories]}" } %>
+    <%= form.select :all_level, Badge.all_level.map { |a| [test_level(a.first), a.last] }, {}, { class: 'form-control hide all_level', style: "#{style[:all_level]}" } %>
+  </div><br>
+
+  <p><%= form.submit %></p>
+<% end %>
+
+<script>
+  function findOption(select) {
+    var select = document.querySelector('select');
+    var first_attempt = document.querySelector('.first_attempt')
+    var all_categories = document.querySelector('.all_categories')
+    var all_level = document.querySelector('.all_level')
+    var option = select.value
+
+    switch (option) {
+      case 'all_categories':
+        first_attempt.style.display = 'none';
+        all_level.style.display = 'none';
+        all_categories.style.display = 'block';
+        break;
+      case 'all_level':
+        first_attempt.style.display = 'none';
+        all_level.style.display = 'block';
+        all_categories.style.display = 'none';
+        break;
+      case 'first_attempt':
+        first_attempt.style.display = 'block';
+        all_level.style.display = 'none';
+        all_categories.style.display = 'none';
+        break;
+    }
+  }
+</script>
