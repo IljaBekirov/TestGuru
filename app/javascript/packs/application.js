@@ -7,6 +7,7 @@ import 'utilities/sorting'
 import 'utilities/equal'
 import 'utilities/form_inline'
 import 'utilities/progress_bar'
+import 'utilities/timer'
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()

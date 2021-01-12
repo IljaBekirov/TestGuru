@@ -8,6 +8,7 @@
   <td class="align-middle"><%= test_level(test.level) %></td>
   <td class="align-middle"><%= find_category(test.category_id) %></td>
   <td class="align-middle"><%= test.questions.count %></td>
+  <td class="align-middle"><%= test.timer %></td>
   <td class="align-middle"><%= link_to "Просмотр", admin_test_path(test) %></td>
   <td class="align-middle">
     <%= link_to "Редактировать", edit_admin_test_path(test), data: { test_id: test.id }, class: 'form-inline-link' %>

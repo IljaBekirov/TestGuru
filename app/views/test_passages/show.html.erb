@@ -3,6 +3,7 @@
 <% number_question = @test_passage.number_question.to_i %>
 <% questions_count = @test_passage.test.questions.count.to_i %>
 
+<div><%= render 'shared/timer' if @test_passage.test.timer %></div>
 
 <%= content_tag(:div, content_tag(:div, "#{progress_percent(number_question - 1, questions_count)}%",
                                   class: 'bar-progress',
