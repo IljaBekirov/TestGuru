@@ -3,27 +3,10 @@
 module BadgesHelper
   def find_style(badge)
     if badge.new_record?
-      first_attempt_style = 'display: none'
-      all_categories_style = 'display: none'
-      all_level_style = 'display: none'
-    elsif badge.rule_type == 'first_attempt'
-      first_attempt_style = 'display: block'
-      all_categories_style = 'display: none'
-      all_level_style = 'display: none'
-    elsif badge.rule_type == 'all_categories'
-      first_attempt_style = 'display: none'
-      all_categories_style = 'display: block'
-      all_level_style = 'display: none'
-    elsif badge.rule_type == 'all_level'
-      first_attempt_style = 'display: none'
-      all_categories_style = 'display: none'
-      all_level_style = 'display: block'
+      all_types('display: none', 'display: none', 'display: none')
+    else
+      badge_rule_type(badge)
     end
-    {
-      first_attempt: first_attempt_style,
-      all_categories: all_categories_style,
-      all_level: all_level_style
-    }
   end
 
   def find_condition(badge)
@@ -39,5 +22,34 @@ module BadgesHelper
     return TestsHelper::TEST_LEVEL[level.to_s] if (0..3).include?(level.to_i)
 
     :other
+  end
+
+  private
+
+  def all_types(first_attempt_style, all_categories_style, all_level_style)
+    { first_attempt: first_attempt_style, all_categories: all_categories_style, all_level: all_level_style }
+  end
+
+  def badge_rule_type(badge)
+    case badge.rule_type
+    when 'first_attempt'
+      first_attempt_style = 'display: block'
+      all_categories_style = 'display: none'
+      all_level_style = 'display: none'
+    when 'all_categories'
+      first_attempt_style = 'display: none'
+      all_categories_style = 'display: block'
+      all_level_style = 'display: none'
+    when 'all_level'
+      first_attempt_style = 'display: none'
+      all_categories_style = 'display: none'
+      all_level_style = 'display: block'
+    else
+      first_attempt_style = 'display: none'
+      all_categories_style = 'display: none'
+      all_level_style = 'display: none'
+    end
+
+    all_types(first_attempt_style, all_categories_style, all_level_style)
   end
 end

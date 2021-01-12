@@ -10,6 +10,13 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
 
+  scope :pass, -> { where('pass = ?', true) }
+
+  def pass_status!
+    self.pass = true if successful?
+    save
+  end
+
   def successful?
     result_percent >= SUCCESSFUL
   end
@@ -31,6 +38,16 @@ class TestPassage < ApplicationRecord
 
   def number_question
     test.questions.order(:id).where('id < ?', current_question.id).size + 1
+  end
+
+  def time_over?
+    return false unless test.timer
+
+    Time.current > test_ending_time
+  end
+
+  def test_ending_time
+    created_at + test.timer.seconds
   end
 
   private

@@ -13,7 +13,7 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   def create
-    params[:badge][:condition] = params[:badge][params[:badge][:rule_type]]
+    set_conditions
     @badge = Badge.new(badge_params)
 
     if @badge.save
@@ -31,7 +31,7 @@ class Admin::BadgesController < Admin::BaseController
   def edit; end
 
   def update
-    params[:badge][:condition] = params[:badge][params[:badge][:rule_type]]
+    set_conditions
     if @badge.update(badge_params)
       redirect_to admin_badges_path, notice: t('.success')
     else
@@ -40,6 +40,12 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   private
+
+  def set_conditions
+    badge = params[:badge]
+    badge[:condition] = badge[badge[:rule_type]]
+    params
+  end
 
   def find_badge
     @badge = Badge.find(params[:id])
