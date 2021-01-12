@@ -1,0 +1,8 @@
+<h6>
+  <%= content_tag(:div, content_tag(:div, '',
+                                    class: 'timer timer-progress',
+                                    data: { timer: @test_passage.test.timer,
+                                            id: @test_passage.id }),
+                  class: 'background-progress text-center') %>
+
+</h6>
